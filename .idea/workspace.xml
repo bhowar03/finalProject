@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6504a11c-cfc7-4c42-bf63-078fb8798877" name="Changes" comment="" />
+    <list default="true" id="6504a11c-cfc7-4c42-bf63-078fb8798877" name="Changes" comment="Added first author">
+      <change beforePath="$PROJECT_DIR$/AUTHORS.txt" beforeDir="false" afterPath="$PROJECT_DIR$/AUTHORS.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -9,6 +11,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectId" id="2GwyuayTdKJ6TwsWNm0F97gAXm0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
