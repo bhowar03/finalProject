@@ -23,10 +23,10 @@ class test implements ActionListener {
         panel2.setLayout(null);
 
         JTextField textField = new JTextField();
-        textField.setBounds(30, 40, 100, 50);
+        textField.setBounds(100, 100, 300, 100);
         panel2.add(textField);
-        JButton button4 = new JButton("enter new name");
-        button4.setBounds(10, 80,80, 25);
+        JButton button4 = new JButton("Enter New Deck Name");
+        button4.setBounds(150, 220,200, 25);
         button4.addActionListener(new test2(button4, textField));
         panel2.add(button4);
 

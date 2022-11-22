@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,11 +21,13 @@ public class Main {
         panel.add(label);
 
         JButton button1 = new JButton("Create deck");
-        button1.setBounds(10, 80,80, 25);
+        button1.setBounds(30, 150,100, 35);
+        button1.setFont(new Font("Arial", Font.BOLD, 10));
         button1.addActionListener(new test(button1));
         panel.add(button1);
         JButton button2 = new JButton("Add cards");
-        button2.setBounds(60, 90, 90, 35);
+        button2.setBounds(150, 150, 100, 35);
+        button2.setFont(new Font("Arial", Font.BOLD, 10));
         button2.addActionListener(new test3(button2));
         panel.add(button2);
 //        JButton button3 = new JButton("Study");
