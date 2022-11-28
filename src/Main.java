@@ -25,15 +25,17 @@ public class Main {
         button1.setFont(new Font("Arial", Font.BOLD, 10));
         button1.addActionListener(new test(button1));
         panel.add(button1);
+
         JButton button2 = new JButton("Add cards");
         button2.setBounds(150, 150, 100, 35);
         button2.setFont(new Font("Arial", Font.BOLD, 10));
-        button2.addActionListener(new test3(button2));
+        button2.addActionListener(new AddCards(button2));
         panel.add(button2);
-//        JButton button3 = new JButton("Study");
-//        button3.setBounds(110, 100, 100, 45);
-//        button3.addActionListener(new Buttons(button3));
-//        panel.add(button3);
+
+        //JButton button3 = new JButton("Study");
+        //button3.setBounds(110, 100, 100, 45);
+        //button3.addActionListener(new Buttons(button3));
+        //panel.add(button3);
 
         frame.pack();
         frame.setSize(300,300);

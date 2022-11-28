@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -71,11 +72,11 @@ class test2 implements ActionListener{
     }
 }
 
-class test3 implements ActionListener{
+class AddCards implements ActionListener{
     private JButton button3;
 
 
-    public test3(JButton button3){
+    public AddCards(JButton button3){
         this.button3 = button3;
 
     }
@@ -94,13 +95,13 @@ class test3 implements ActionListener{
     public void actionPerformed(ActionEvent e){
         JFrame frame6 = new JFrame();
         JPanel panel6 = new JPanel();
-        panel6.setLayout(null);
+        panel6.setLayout(new FlowLayout());
 
 
 
         ArrayList<String> deckNames = getDecks();
 
-        int k = 10;
+        /*int k = 10;
         int choice = 1;
 
         for (int i=0; i<deckNames.size(); i++) {
@@ -112,7 +113,14 @@ class test3 implements ActionListener{
             panel6.add(label);
             k = k + 10;
             choice = choice + 1;
+        }*/
+
+        for (int i=0; i<deckNames.size(); i++) {
+            JButton button = new JButton(deckNames.get(i));
+            button.addActionListener(new DeckSelector(deckNames.get(i), button));
+            panel6.add(button);
         }
+
         frame6.pack();
         frame6.setSize(500,500);
         frame6.setVisible(true);
@@ -121,4 +129,68 @@ class test3 implements ActionListener{
 }
 
 public class Buttons {
+}
+
+class DeckSelector implements ActionListener {
+
+    private String deckName;
+    private JButton button;
+
+    public DeckSelector(String name, JButton b) {
+        deckName = name;
+        button = b;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Deck deck = new Deck(deckName);
+
+        JFrame frame = new JFrame("Adding Cards");
+        frame.setLayout(new GridLayout());
+        //frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+
+        JTextField questionField = new JTextField();
+        questionField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                questionField.getText();
+            }
+        });
+        frame.getContentPane().add(questionField);
+
+        JTextField answerField = new JTextField();
+        answerField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                answerField.getText();
+            }
+        });
+        frame.getContentPane().add(answerField);
+
+        JButton addButton = new JButton("Add Card");
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String question = questionField.getText();
+                String answer = answerField.getText();
+                Card c = new Card(question, answer);
+                deck.addCard(c);
+            }
+        });
+        frame.getContentPane().add(addButton);
+
+        JButton closeButton = new JButton("Done");
+        closeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                deck.save();
+            }
+        });
+        frame.getContentPane().add(closeButton);
+
+        frame.pack();
+        frame.setSize(500,500);
+        frame.setVisible(true);
+    }
 }
