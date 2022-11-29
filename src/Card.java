@@ -13,6 +13,8 @@ public class Card {
     private int daysBetween;
     private boolean newCard;
 
+    private String response;
+
 
     public Card(String q, String a) {
         question = q;
@@ -56,6 +58,8 @@ public class Card {
     }
 
     public boolean ask() {
+//        String response = "";
+
         JFrame frame = new JFrame("Study Deck");
         frame.setLayout(new GridLayout());
 
@@ -71,59 +75,99 @@ public class Card {
                 label.setText(answer);
             }
         });
+        JButton clicker = new JButton("Continue");
+        frame.remove(place);
+        frame.add(clicker);
+        clicker.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame1 = new JFrame("Query");
+                frame.setLayout(new GridLayout());
+                JLabel label1 = new JLabel();
+
+                label1.setText("Was that easy, correct, difficult, or wrong");
+                frame1.add(label);
+
+                JButton easy = new JButton("Easy");
+                JButton correct = new JButton("Correct");
+                JButton difficult = new JButton("Difficult");
+                JButton wrong = new JButton("Wrong");
+                frame1.add(easy);
+                frame1.add(correct);
+                frame1.add(difficult);
+                frame1.add(wrong);
+                easy.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        response = "easy";
+                    }
+                });
+                correct.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        response = "correct";
+                    }
+                });
+                difficult.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        response = "difficult";
+                    }
+                });
+                wrong.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        response = "wrong";
+                    }
+                });
+            }
+        });
 
 //
 //
 //
-//        Scanner in = new Scanner(System.in);
-//        String choice = "";
-//        System.out.println("Press enter when you are ready to flip");
-//        choice = in.nextLine();
-//        if (choice.equals("")) {
-//            System.out.println(answer);
-//        }
-//        boolean valid = false;
-//        boolean isWrong = false;
-//        while (!valid) {
-//            System.out.println("Was that easy, correct, difficult, or wrong");
-//            String response = in.next();
-//            switch(response) {
-//                case "easy":
-//                    daysBetween = (int)Math.round(((daysBetween + 1) * 1.5));
-//                    newCard = false;
-//                    valid = true;
-//                    break;
-//                case "correct":
-//                    daysBetween = (int)Math.round(((daysBetween + 1) * 1.25));
-//                    newCard = false;
-//                    valid = true;
-//                    break;
-//                case "difficult":
-//                    daysBetween = (int)Math.round(((daysBetween + 1) * 1.1));
-//                    newCard = false;
-//                    valid = true;
-//                    break;
-//                case "wrong":
-//                    daysBetween = 0;
-//                    newCard = false;
-//                    valid = true;
-//                    isWrong = true;
-//                    break;
-//            }
-//        }
-//        pause();
-//        for (int i=0; i<100; i++) {
-//            System.out.println();
-//        }
-//        return isWrong;
-//    }
 //
-//    public static void pause() {
-//        try {
-//            Thread.sleep(1000);
-//        } catch (InterruptedException e) {}
-//    }
-        return true;
+
+        boolean valid = false;
+        boolean isWrong = false;
+        while (!valid) {
+
+            switch(response) {
+                case "easy":
+                    daysBetween = (int)Math.round(((daysBetween + 1) * 1.5));
+                    newCard = false;
+                    valid = true;
+                    break;
+                case "correct":
+                    daysBetween = (int)Math.round(((daysBetween + 1) * 1.25));
+                    newCard = false;
+                    valid = true;
+                    break;
+                case "difficult":
+                    daysBetween = (int)Math.round(((daysBetween + 1) * 1.1));
+                    newCard = false;
+                    valid = true;
+                    break;
+                case "wrong":
+                    daysBetween = 0;
+                    newCard = false;
+                    valid = true;
+                    isWrong = true;
+                    break;
+            }
+        }
+        pause();
+        for (int i=0; i<100; i++) {
+            System.out.println();
+        }
+        return isWrong;
     }
 
+    public static void pause() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {}
+    }
 }
+
+

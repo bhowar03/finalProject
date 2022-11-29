@@ -135,7 +135,7 @@ class DeckSelector implements ActionListener {
 
     public DeckSelector(String name, JButton b) {
         deckName = name;
-        button = b;
+//        button = b;
     }
 
     @Override
@@ -216,9 +216,9 @@ class studyDeck implements ActionListener{
         ArrayList<String> deckNames = getDeck();
 
         for (int i=0; i<deckNames.size(); i++) {
-            JButton button = new JButton(deckNames.get(i));
-            button.addActionListener(new StudyDeckChooser(deckNames.get(i), button));
-            panel7.add(button);
+            JButton click = new JButton(deckNames.get(i));
+            click.addActionListener(new StudyDeckChooser(deckNames.get(i), click));
+            panel7.add(click);
         }
 
 
@@ -237,12 +237,12 @@ class StudyDeckChooser implements ActionListener {
     public StudyDeckChooser(String name, JButton b) {
         deckName = name;
         button = b;
-        cards = new ArrayList<>();
     }
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
+//        System.out.println(deckName);
         Deck deck = new Deck(deckName);
 
         deck.study();
