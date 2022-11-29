@@ -102,11 +102,13 @@ public class Card {
                 panel1.add(correct);
                 panel1.add(difficult);
                 panel1.add(wrong);
+                frame.setVisible(false);
                 easy.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         response = "easy";
                         System.out.println(response);
+                        panel1.setVisible(false);
 
                     }
                 });
@@ -115,6 +117,7 @@ public class Card {
                     public void actionPerformed(ActionEvent e) {
                         response = "correct";
                         System.out.println(response);
+                        panel1.setVisible(false);
                     }
                 });
                 difficult.addActionListener(new ActionListener() {
@@ -122,6 +125,7 @@ public class Card {
                     public void actionPerformed(ActionEvent e) {
                         response = "difficult";
                         System.out.println(response);
+                        panel1.setVisible(false);
                     }
                 });
                 wrong.addActionListener(new ActionListener() {
@@ -129,6 +133,7 @@ public class Card {
                     public void actionPerformed(ActionEvent e) {
                         response = "wrong";
                         System.out.println(response);
+                        panel1.setVisible(false);
                     }
                 });
             }

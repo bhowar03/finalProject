@@ -246,6 +246,7 @@ class StudyDeckChooser implements ActionListener {
         Deck deck = new Deck(deckName);
 
         deck.study();
+        deck.save();
 
 
 
