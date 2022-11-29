@@ -68,6 +68,7 @@ public class Card {
 
         JLabel label = new JLabel();
         label.setText(question);
+        label.setFont(new Font("Arial", Font.PLAIN, 15));
         frame.add(label);
 
         JButton place = new JButton("Continue");
@@ -86,13 +87,14 @@ public class Card {
             public void actionPerformed(ActionEvent e) {
                 response = "";
                 JFrame panel1 = new JFrame("Query");
-                panel1.setLayout(new GridLayout());
-                panel1.setBounds(300, 300, 300, 300);
+                panel1.setLayout(new FlowLayout());
+                panel1.setBounds(200, 200, 300, 300);
                 panel1.setVisible(true);
                 JLabel label1 = new JLabel();
+                label1.setBounds(100,100,100,100);
 
                 label1.setText("Was that easy, correct, difficult, or wrong");
-                panel1.add(label);
+                panel1.add(label1);
 
                 JButton easy = new JButton("Easy");
                 JButton correct = new JButton("Correct");
