@@ -78,5 +78,6 @@ public class Deck {
             }
         }
         System.out.println("All caught up!");
+        save();
     }
 }

@@ -58,10 +58,13 @@ public class Card {
     }
 
     public boolean ask() {
-//        String response = "";
-
         JFrame frame = new JFrame("Study Deck");
+//        JPanel panel = new JPanel();
         frame.setLayout(new GridLayout());
+//        frame.add(panel);
+        frame.setVisible(true);
+        frame.setBounds(00, 300, 400, 400);
+//        panel.setBounds(40,80,200,200);
 
         JLabel label = new JLabel();
         label.setText(question);
@@ -75,63 +78,65 @@ public class Card {
                 label.setText(answer);
             }
         });
-        JButton clicker = new JButton("Continue");
-        frame.remove(place);
+        JButton clicker = new JButton("Query");
+//        panel.remove(place);
         frame.add(clicker);
         clicker.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame frame1 = new JFrame("Query");
-                frame.setLayout(new GridLayout());
+                response = "";
+                JFrame panel1 = new JFrame("Query");
+                panel1.setLayout(new GridLayout());
+                panel1.setBounds(300, 300, 300, 300);
+                panel1.setVisible(true);
                 JLabel label1 = new JLabel();
 
                 label1.setText("Was that easy, correct, difficult, or wrong");
-                frame1.add(label);
+                panel1.add(label);
 
                 JButton easy = new JButton("Easy");
                 JButton correct = new JButton("Correct");
                 JButton difficult = new JButton("Difficult");
                 JButton wrong = new JButton("Wrong");
-                frame1.add(easy);
-                frame1.add(correct);
-                frame1.add(difficult);
-                frame1.add(wrong);
+                panel1.add(easy);
+                panel1.add(correct);
+                panel1.add(difficult);
+                panel1.add(wrong);
                 easy.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         response = "easy";
+                        System.out.println(response);
+
                     }
                 });
                 correct.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         response = "correct";
+                        System.out.println(response);
                     }
                 });
                 difficult.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         response = "difficult";
+                        System.out.println(response);
                     }
                 });
                 wrong.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         response = "wrong";
+                        System.out.println(response);
                     }
                 });
             }
         });
 
-//
-//
-//
-//
-
         boolean valid = false;
         boolean isWrong = false;
-        while (!valid) {
-
+        while (!valid && response != null) {
             switch(response) {
                 case "easy":
                     daysBetween = (int)Math.round(((daysBetween + 1) * 1.5));
