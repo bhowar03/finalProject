@@ -6,9 +6,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Scanner;
-
-import java.awt.event.ActionListener;
 
 class test implements ActionListener {
     private JButton button1;
@@ -71,7 +68,7 @@ class test2 implements ActionListener{
         frame5.add(panel5);
     }
 }
-
+// Adds cards to the decks
 class AddCards implements ActionListener{
     private JButton button3;
 
@@ -128,8 +125,8 @@ class AddCards implements ActionListener{
     }
 }
 
-public class Buttons {
-}
+//public class Buttons {
+//}
 
 class DeckSelector implements ActionListener {
 
@@ -192,5 +189,65 @@ class DeckSelector implements ActionListener {
         frame.pack();
         frame.setSize(500,500);
         frame.setVisible(true);
+    }
+}
+class studyDeck implements ActionListener{
+    private JButton studyButton;
+
+    public studyDeck(JButton studyButton) {
+        this.studyButton = studyButton;
+    }
+
+    public static ArrayList<String> getDeck() {
+        File f = new File("./decks");
+        String[] fileList = f.list();
+        ArrayList<String> files = new ArrayList<>();
+        for (int i=0; i< fileList.length; i++) {
+            files.add(fileList[i]);
+        }
+        return files;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JFrame frame7 = new JFrame();
+        JPanel panel7 = new JPanel();
+        panel7.setLayout(new FlowLayout());
+        ArrayList<String> deckNames = getDeck();
+
+        for (int i=0; i<deckNames.size(); i++) {
+            JButton button = new JButton(deckNames.get(i));
+            button.addActionListener(new StudyDeckChooser(deckNames.get(i), button));
+            panel7.add(button);
+        }
+
+
+        frame7.pack();
+        frame7.setSize(500,500);
+        frame7.setVisible(true);
+        frame7.add(panel7);
+    }
+}
+class StudyDeckChooser implements ActionListener {
+
+    private String deckName;
+    private JButton button;
+    private ArrayList<Card> cards;
+
+    public StudyDeckChooser(String name, JButton b) {
+        deckName = name;
+        button = b;
+        cards = new ArrayList<>();
+    }
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Deck deck = new Deck(deckName);
+
+        deck.study();
+
+
+
     }
 }

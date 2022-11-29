@@ -25,17 +25,16 @@ public class Main {
         button1.setFont(new Font("Arial", Font.BOLD, 10));
         button1.addActionListener(new test(button1));
         panel.add(button1);
-
         JButton button2 = new JButton("Add cards");
         button2.setBounds(150, 150, 100, 35);
         button2.setFont(new Font("Arial", Font.BOLD, 10));
         button2.addActionListener(new AddCards(button2));
         panel.add(button2);
-
-        //JButton button3 = new JButton("Study");
-        //button3.setBounds(110, 100, 100, 45);
-        //button3.addActionListener(new Buttons(button3));
-        //panel.add(button3);
+        JButton button3 = new JButton("Study");
+        button3.setBounds(90, 100, 100, 35);
+        button3.setFont(new Font("Arial", Font.BOLD, 10));
+        button3.addActionListener(new studyDeck(button3));
+        panel.add(button3);
 
         frame.pack();
         frame.setSize(300,300);
@@ -67,46 +66,46 @@ public class Main {
         return deck;
     }
 
-    public static void study() {
-        System.out.println("Which deck would you like to study?");
-        Deck deck = chooseDeck();
-        deck.study();
-        deck.save();
-    }
-
-    public static void addCards() {
-        System.out.println("Which deck would you like to add Cards to?");
-        Deck deck = chooseDeck();
-        Scanner in = new Scanner(System.in);
-        String choice = "";
-        while (!choice.equals("no")) {
-            System.out.println("Add a question");
-            String question = in.nextLine();
-            System.out.println("Add the answer to the question");
-            String answer = in.nextLine();
-            deck.addCard(new Card(question, answer));
-            System.out.println("Would you like to add more? Type \"yes\" or \"no\"");
-            choice = in.nextLine();
-            System.out.println();
-        }
-        deck.save();
-    }
-
-    public static void createDeck() {
-        String pathName = "./decks";
-        new File(pathName).mkdir();
-        Scanner in = new Scanner(System.in);
-        System.out.print("What is the name of the deck you want to create: ");
-        String name = in.next();
-        String deckName = name + ".deck";
-        File f = new File(pathName, deckName);
-        try {
-            f.createNewFile();
-            PrintWriter out = new PrintWriter(f);
-            out.flush();
-            out.close();
-        } catch (IOException e) {
-            System.err.println("Unable to create file");
-        }
-    }
+//    public static void study() {
+//        System.out.println("Which deck would you like to study?");
+//        Deck deck = chooseDeck();
+//        deck.study();
+//        deck.save();
+//    }
+//
+//    public static void addCards() {
+//        System.out.println("Which deck would you like to add Cards to?");
+//        Deck deck = chooseDeck();
+//        Scanner in = new Scanner(System.in);
+//        String choice = "";
+//        while (!choice.equals("no")) {
+//            System.out.println("Add a question");
+//            String question = in.nextLine();
+//            System.out.println("Add the answer to the question");
+//            String answer = in.nextLine();
+//            deck.addCard(new Card(question, answer));
+//            System.out.println("Would you like to add more? Type \"yes\" or \"no\"");
+//            choice = in.nextLine();
+//            System.out.println();
+//        }
+//        deck.save();
+//    }
+//
+//    public static void createDeck() {
+//        String pathName = "./decks";
+//        new File(pathName).mkdir();
+//        Scanner in = new Scanner(System.in);
+//        System.out.print("What is the name of the deck you want to create: ");
+//        String name = in.next();
+//        String deckName = name + ".deck";
+//        File f = new File(pathName, deckName);
+//        try {
+//            f.createNewFile();
+//            PrintWriter out = new PrintWriter(f);
+//            out.flush();
+//            out.close();
+//        } catch (IOException e) {
+//            System.err.println("Unable to create file");
+//        }
+//    }
 }
