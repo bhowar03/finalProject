@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -233,6 +232,7 @@ class StudyDeckChooser implements ActionListener {
     private String deckName;
     private JButton button;
     private ArrayList<Card> cards;
+    private Deck deck;
 
     public StudyDeckChooser(String name, JButton b) {
         deckName = name;
@@ -243,7 +243,7 @@ class StudyDeckChooser implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 //        System.out.println(deckName);
-        Deck deck = new Deck(deckName);
+        deck = new Deck(deckName);
 
         deck.study();
         JButton test = new JButton("Save");

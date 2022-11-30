@@ -82,6 +82,7 @@ public class Card {
         JButton clicker = new JButton("Query");
 //        panel.remove(place);
         frame.add(clicker);
+
         clicker.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -109,6 +110,10 @@ public class Card {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         response = "easy";
+
+                        daysBetween = (int)Math.round(((daysBetween + 1) * 1.5));
+                        newCard = false;
+
                         System.out.println(response);
                         panel1.setVisible(false);
 
@@ -118,6 +123,10 @@ public class Card {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         response = "correct";
+
+                        daysBetween = (int)Math.round(((daysBetween + 1) * 1.25));
+                        newCard = false;
+
                         System.out.println(response);
                         panel1.setVisible(false);
                     }
@@ -126,6 +135,10 @@ public class Card {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         response = "difficult";
+
+                        daysBetween = (int)Math.round(((daysBetween + 1) * 1.1));
+                        newCard = false;
+
                         System.out.println(response);
                         panel1.setVisible(false);
                     }
@@ -134,6 +147,10 @@ public class Card {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         response = "wrong";
+
+                        daysBetween = 0;
+                        newCard = false;
+
                         System.out.println(response);
                         panel1.setVisible(false);
                     }
@@ -141,9 +158,10 @@ public class Card {
             }
         });
 
-        boolean valid = false;
+        //boolean valid = false;
         boolean isWrong = false;
-        while (!valid && response != null) {
+
+        /*while (!valid && response != null) {
             switch(response) {
                 case "easy":
                     daysBetween = (int)Math.round(((daysBetween + 1) * 1.5));
@@ -167,7 +185,7 @@ public class Card {
                     isWrong = true;
                     break;
             }
-        }
+        }*/
         pause();
         for (int i=0; i<100; i++) {
             System.out.println();
