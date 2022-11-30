@@ -246,9 +246,18 @@ class StudyDeckChooser implements ActionListener {
         Deck deck = new Deck(deckName);
 
         deck.study();
-        deck.save();
-
-
-
+        JButton test = new JButton("Save");
+        JFrame frame2 = new JFrame("Save");
+        frame2.add(test);
+       frame2.setVisible(true);
+       frame2.setBounds(100, 100, 100, 100);
+       test.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+               deck.save();
+               frame2.setVisible(false);
+           }
+       });
     }
 }
+
