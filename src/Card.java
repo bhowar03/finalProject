@@ -158,34 +158,8 @@ public class Card {
             }
         });
 
-        //boolean valid = false;
         boolean isWrong = false;
 
-        /*while (!valid && response != null) {
-            switch(response) {
-                case "easy":
-                    daysBetween = (int)Math.round(((daysBetween + 1) * 1.5));
-                    newCard = false;
-                    valid = true;
-                    break;
-                case "correct":
-                    daysBetween = (int)Math.round(((daysBetween + 1) * 1.25));
-                    newCard = false;
-                    valid = true;
-                    break;
-                case "difficult":
-                    daysBetween = (int)Math.round(((daysBetween + 1) * 1.1));
-                    newCard = false;
-                    valid = true;
-                    break;
-                case "wrong":
-                    daysBetween = 0;
-                    newCard = false;
-                    valid = true;
-                    isWrong = true;
-                    break;
-            }
-        }*/
         pause();
         for (int i=0; i<100; i++) {
             System.out.println();
