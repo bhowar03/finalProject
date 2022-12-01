@@ -71,7 +71,7 @@ public class Card {
         label.setFont(new Font("Arial", Font.PLAIN, 15));
         frame.add(label);
 
-        JButton place = new JButton("Continue");
+        JButton place = new JButton("Show Answer");
         frame.add(place);
         place.addActionListener(new ActionListener() {
             @Override
@@ -79,7 +79,7 @@ public class Card {
                 label.setText(answer);
             }
         });
-        JButton clicker = new JButton("Query");
+        JButton clicker = new JButton("Feedback");
 //        panel.remove(place);
         frame.add(clicker);
 

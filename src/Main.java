@@ -41,15 +41,15 @@ public class Main {
     }
 
 
-    public static ArrayList<String> getDecks() {
-        File f = new File("./decks");
-        String[] fileList = f.list();
-        ArrayList<String> files = new ArrayList<>();
-        for (int i=0; i< fileList.length; i++) {
-            files.add(fileList[i]);
-        }
-        return files;
-    }
+//    public static ArrayList<String> getDecks() {
+//        File f = new File("./decks");
+//        String[] fileList = f.list();
+//        ArrayList<String> files = new ArrayList<>();
+//        for (int i=0; i< fileList.length; i++) {
+//            files.add(fileList[i]);
+//        }
+//        return files;
+//    }
 
 
 }
