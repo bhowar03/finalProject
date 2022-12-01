@@ -29,14 +29,17 @@ class CreateDeck2 implements ActionListener{
         } catch (IOException g) {
             System.err.println("Unable to create file");
         }
-        JFrame frame5 = new JFrame(get);
+        /*JFrame frame5 = new JFrame(get);
         JPanel panel5 = new JPanel();
         panel5.setLayout(null);
 
         frame5.pack();
         frame5.setSize(300,300);
         frame5.setVisible(true);
-        frame5.add(panel5);
+        frame5.add(panel5);*/
+
+        String message = "New deck " + get + " has been created";
+        JOptionPane.showMessageDialog(null, message);
     }
 }
 
